@@ -1,5 +1,12 @@
 .card {
     width: 9rem;
-    height: 15rem;
+    height: auto;
 }
 
+.manga-cover {
+    width: 100%;
+}
+
+p {
+    font-size: x-small;
+}
