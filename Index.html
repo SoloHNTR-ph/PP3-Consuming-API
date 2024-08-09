@@ -21,15 +21,24 @@
           <span class="text-info">M</span>anga<span class="text-warning">H</span
           >inog
         </h1>
+
+        <nav>
+          <ul>
+            <li>
+              <a class="btn btn-outline-info" href="./Index.html">Home</a>
+            </li>
+          </ul>
+        </nav>
         
-        <form class="form-inline my-2 my-lg-0 d-flex">
+        <form class="form-inline my-2 my-lg-0 d-flex" id="search-form">
           <input
-            class="form-control mr-sm-2"
+            id="search-input"
+            class="form-control mr-sm-2 me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>
@@ -37,7 +46,7 @@
     </header>
 
     <section id="popular-updates" class="container">
-      <h1>Popular Updates</h1>
+      <h1>My Favorites</h1>
       <div id="manga-container" class="row gap-3 mb-3">
         <div class="card col">
           <a href="./info.html">

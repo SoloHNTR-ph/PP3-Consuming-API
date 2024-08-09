@@ -1,6 +1,11 @@
 .card {
     width: 9rem;
     height: auto;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
 }
 
 .manga-cover {
@@ -8,5 +13,14 @@
 }
 
 p {
-    font-size: x-small;
+    font-size: small;
 }
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+

@@ -22,14 +22,21 @@
           >inog
         </h1>
         
-        <form class="form-inline my-2 my-lg-0 d-flex">
+        <nav>
+          <ul>
+            <a class="btn btn-outline-info" href="./Index.html">Home</a>
+          </ul>
+        </nav>
+
+        <form class="form-inline my-2 my-lg-0 d-flex" id="search-form">
           <input
-            class="form-control mr-sm-2"
+            id="search-input"
+            class="form-control mr-sm-2 me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button id="search-button" class="btn btn-outline-success my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>
@@ -37,25 +44,25 @@
     </header>
 
     <section>
-      <div class="container-fluid">
-        <h1 id="mangaInfo-title" class="mangaInfo-title">Title</h1>
+      <div class=" container container-fluid">
+        <h1 id="manga-title" class="mangaInfo-title">Title</h1>
       </div>
 
-      <div class="container container-fluid d-flex ">
+      <div class="container container-fluid d-flex mt-4">
         <div class="img-cover">
-          <img src="./images/placeholder.png" alt="manga" id="mangaInfo-cover" />
+          <img src="./images/placeholder.png" alt="manga" id="manga-cover" />
         </div>
         <div class="mangaInfo-rank container-fluid">
           <div class="container-fluid d-flex gap-5">
             <div class="ranking d-flex">
-              <h5 class="fw-normal">
+              <h4 class="fw-normal">
                 Ranked #<span id="ranked" class="fw-bolder">000</span>
-              </h5>
+              </h4>
             </div>
             <div class="ranking d-flex">
-              <h5 class="fw-normal">
+              <h4 class="fw-normal">
                 Popularity #<span id="popularity" class="fw-bolder">000</span>
-              </h5>
+              </h4>
             </div>
           </div>
           <div class="container-fluid">
@@ -67,14 +74,15 @@
             <p>Authors: <span id="authors">date</span></p>
           </div>
           <div class="container-fluid">
-            <h5>Sypnopsis</h5>
+            <h4>Sypnopsis</h4>
             <div class="container-fluid">
               <p id="synopsis">Synopsis</p>
             </div>
           </div>
           <div class="container-fluid">
-            <h5>Characters</h5>
-            <div id="characters" class="container-fluid">
+            <h4>Characters</h4>
+            <div id="characters" class="container-fluid row row-cols-4">
+              
 
             </div>
           </div>
