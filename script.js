@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   const mangaList = [
-    "Jagaaaaaan",
-    "The Fable",
-    "Undead Unluck",
-    "One Punch Man",
+    "Berserk",
+    "Shingeki no Kyojin",
     "Chainsaw Man",
-    "Kemono Jihen",
-    "Kanojo, Okarishimasu",
-    "Nazo no Kanojo X",
+    "One Piece",
+    "One Punch-Man",
+    "Tokyo Ghoul",
+    "Kimetsu no Yaiba",
+    "Boku no Hero Academia",
     "Jujutsu Kaisen",
-    "Dr. Stone",
+    "Naruto",
   ];
 
   const mangaContainer = document.querySelectorAll("#manga-container");
@@ -94,13 +94,12 @@ document.addEventListener("DOMContentLoaded", function () {
       searchResultsContainer.innerHTML = "";
 
       if (mangaList.length === 0) {
-        // Display an error message if no results found
         const errorMessage = document.createElement("p");
         errorMessage.textContent = "No results found for your search.";
         errorMessage.classList.add("error-message");
         searchResultsContainer.appendChild(errorMessage);
-      } else {
-        // Limit the results to 24 using slice
+      } 
+      else {
         mangaList = mangaList.slice(0, 24);
         mangaList.forEach((manga) => {
           const card = document.createElement("div");
