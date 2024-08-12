@@ -14,10 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const mangaContainer = document.querySelectorAll("#manga-container");
 
-  function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
   async function fetchMangaData(manga) {
     try {
       const response = await fetch(
@@ -32,8 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function fetchMangaDetails(id) {
     try {
-      await delay(500);
-
       const response = await fetch(`https://api.jikan.moe/v4/manga/${id}`);
       const data = await response.json();
       const manga = data.data;
@@ -61,8 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .join(", ");
       document.getElementById("synopsis").textContent =
         manga.synopsis || "No synopsis available";
-
-      await delay(500); 
 
       const charResponse = await fetch(
         `https://api.jikan.moe/v4/manga/${id}/characters`
@@ -97,31 +89,41 @@ document.addEventListener("DOMContentLoaded", function () {
         `https://api.jikan.moe/v4/manga?q=${encodeURIComponent(query)}`
       );
       const data = await response.json();
-      const mangaList = data.data;
+      let mangaList = data.data;
       const searchResultsContainer = document.getElementById("search-results");
       searchResultsContainer.innerHTML = "";
 
-      mangaList.forEach((manga) => {
-        const card = document.createElement("div");
-        card.classList.add("card", "col");
-        const link = document.createElement("a");
-        link.href = `./info.html?id=${manga.mal_id}`;
-        const img = document.createElement("img");
-        img.src = manga.images.jpg.large_image_url;
-        img.alt = manga.title;
-        img.classList.add("manga-cover");
-        const cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
-        const title = document.createElement("h5");
-        title.classList.add("manga-title");
-        title.textContent = manga.title;
+      if (mangaList.length === 0) {
+        // Display an error message if no results found
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = "No results found for your search.";
+        errorMessage.classList.add("error-message");
+        searchResultsContainer.appendChild(errorMessage);
+      } else {
+        // Limit the results to 24 using slice
+        mangaList = mangaList.slice(0, 24);
+        mangaList.forEach((manga) => {
+          const card = document.createElement("div");
+          card.classList.add("card", "col");
+          const link = document.createElement("a");
+          link.href = `./info.html?id=${manga.mal_id}`;
+          const img = document.createElement("img");
+          img.src = manga.images.jpg.large_image_url;
+          img.alt = manga.title;
+          img.classList.add("manga-cover");
+          const cardBody = document.createElement("div");
+          cardBody.classList.add("card-body");
+          const title = document.createElement("h5");
+          title.classList.add("manga-title");
+          title.textContent = manga.title;
 
-        link.appendChild(img);
-        cardBody.appendChild(title);
-        card.appendChild(link);
-        card.appendChild(cardBody);
-        searchResultsContainer.appendChild(card);
-      });
+          link.appendChild(img);
+          cardBody.appendChild(title);
+          card.appendChild(link);
+          card.appendChild(cardBody);
+          searchResultsContainer.appendChild(card);
+        });
+      }
     } catch (error) {
       console.error("Error fetching search results:", error);
     }

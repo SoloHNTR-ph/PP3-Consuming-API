@@ -12,7 +12,13 @@
     width: 100%;
 }
 
-
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    height: 69vh;
+}
+  
 
 a {
     text-decoration: none;
@@ -22,3 +28,6 @@ ul {
     list-style: none;
 }
 
+footer {
+    height: 50px;
+}
