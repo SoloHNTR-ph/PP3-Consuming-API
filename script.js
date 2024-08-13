@@ -47,7 +47,7 @@ async function fetchMangaDetails(id) {
         charElement.appendChild(charImg);
         charElement.appendChild(charName);
         charactersContainer.appendChild(charElement);
-      }, index * 1000);
+      }, index * 50);
     });
   } catch (error) {
     console.error("Error fetching manga details:", error);
